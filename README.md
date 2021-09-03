@@ -9,7 +9,6 @@ In React, we can't change the values in props object. They are meant to be **imm
 - Review passing data to a React component via props.
 - Identify state in a React app.
 - Modify the state of a React component through events.
-- Distinguish container and presentational components.
 
 ## Set Up
 
