@@ -319,8 +319,9 @@ export default Friend;
 
 ## State vs. Props Takeaways
 
-- State is mutable, props are not
-- State is local and encapsulated. It is not accessible to any component other than the one that owns it, unless that component passes it to a child component.
+- State is mutable, props are not. 
+- Changes to state variables trigger React to re-render the components that depend on those values and update the UI. 
+- State is [local and encapsulated](https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down). It is not accessible to any component other than the one that owns it, unless that component passes it to a child component.
 - Data flows downward and unidirectionally in a React application. Parent components can pass state data down to children, but children cannot pass state up to parents. 
 - State cannot be modified directly. It must be modified with the `setState` function returned from the `useState` hook.
 
