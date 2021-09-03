@@ -107,7 +107,7 @@ const [movies, setMovies] = useState([]);
 
 const [gameOver, setGameOver] = useState(false);
 
-const [friends, setFriends] = useState([{ name: 'Tabitha' }, { name: 'Esin' }]);
+const [friends, setFriends] = useState([{ name: 'Carlos' }, { name: 'Esin' }]);
 ```
 
 We're going to only have one variable in our state right now, but you can add as many pieces of state as you need to a component.
@@ -152,6 +152,7 @@ Let's have our button toggle the showing state when it's clicked. How might we d
 
 <details>
     <summary>Solution</summary>
+  
 ```js
 <button onClick={() => setShowing(!showing)}>Toggle State</button>
 ```
@@ -214,7 +215,7 @@ import React, { useState } from 'react';
 import Friend from './Friend';
 
 const Friends = () => {
-  const [friends, setFriends] = useState(['Jen', 'Carlos', 'Esin', 'Tabitha']);
+  const [friends, setFriends] = useState(['Shaw', 'Carlos', 'Esin', 'Randomona']);
 
   return (
     <ul>
@@ -254,7 +255,7 @@ Let's add a function now in Friend to change our friends array. Let's call it `u
 import React, { useState } from 'react';
 
 const Friends = () => {
-  const [friends, setFriends] = useState(['Jen', 'Carlos', 'Esin', 'Tabitha']);
+  const [friends, setFriends] = useState(['Shaw', 'Carlos', 'Esin', 'Randomona']);
   function unfriend() {
     const newFriends = friends.slice(1);
     setFriends(newFriends);
@@ -315,6 +316,31 @@ export default Friend;
 ```
 
 </details>
+
+## State vs. Props Takeaways
+
+- State is mutable, props are not
+- State is local and encapsulated. It is not accessible to any component other than the one that owns it, unless that component passes it to a child component.
+- Data flows downward and unidirectionally in a React application. Parent components can pass state data down to children, but children cannot pass state up to parents. 
+- State cannot be modified directly. It must be modified with the `setState` function returned from the `useState` hook.
+
+Do not do this: 
+```js
+const [sumState, setSumState] = useState(0);
+
+function incrementSumState() {
+   sumState = sumState + 1;
+}
+```
+
+Do this: 
+```js
+const [sumState, setSumState] = useState(0);
+
+function incrementSumState() {
+   setSumState(sumState + 1);
+}
+```
 
 ## Additional Resources
 
